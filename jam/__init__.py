@@ -23,10 +23,14 @@ def create_app(config_class=Config):
     from jam.users.routes import users
     from jam.posts.routes import posts
     from jam.main.routes import main
+    from jam.paystub.routes import paystub
+    from jam.timesheet.routes import timesheet
     from jam.errors.handlers import errors
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
+    app.register_blueprint(paystub)
+    app.register_blueprint(timesheet)
     app.register_blueprint(errors)
 
     return app

@@ -18,7 +18,7 @@
 
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/sketchy/bootstrap.min.css"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/united/bootstrap.min.css"
 		/>
 
 
@@ -45,12 +45,27 @@
 		<title> jam payroll</title>
 		{% endif %}
 
+	<style>
+		@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+	</style>			
+
 	</head>
-	<body style="background-color: #FECD82;">
-		<nav class="navbar navbar-expand-md navbar-secondary bg-brick fixed-top">
+	<body style="background-color: silver;">
+		<nav 
+		class="navbar navbar-expand-md navbar-dark fixed-top bg-black text-maroon"
+
+		>
 
 			<a class="navbar-brand" href="/">
-				<img src="https://raw.githubusercontent.com/attila5287/task_app_img/master/ndo_demo.png" alt="" style="max-height: 2rem;">
+				<img
+            src="https://raw.githubusercontent.com/attila5287/payroll_management_app_assets/master/navBarIcon_jam_nodes_simplifiedd.ico"
+            width="112" height="30">
 			</a>
 
 			<button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -62,22 +77,28 @@
 			  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
 				{% if current_user.is_authenticated %}
+
 				<li class="nav-item">
-				<a class="nav-link" href="">Module01</a>
+				<a class="nav-link" href="{{url_for('paystub.create_paystub')}}">PayStub</a>
 				</li>				
 				<li class="nav-item">
-				  <a class="nav-link" href="">Module02</a>
+				  <a class="nav-link" href="{{url_for('timesheet.create_timesheet')}}">TimeSheet</a>
 				</li>
+
+
 				{% else %}
+
+
 				<li class="nav-item">
-					<a class="nav-link" href="">
-						<i class="fas fa-clipboard-list"></i>
-						Module01Demo</a>
+					<a class="nav-link" href="{{url_for('paystub.create_paystub')}}">
+						<i class="fas fa-print"></i>
+						<i class="fas fa-money-check    "></i>
+						PayStub</a>
 					</li>				
 					<li class="nav-item">
-					  <a class="nav-link" href="">
-						  <i class="fas fa-football-ball"></i>
-						  Module02Demo</a>
+					  <a class="nav-link" href="{{url_for('timesheet.create_timesheet')}}">
+						  <i class="fas fa-hourglass-half"></i>
+						  TimeSheet</a>
 					</li>
         {% endif %}
 				{% if current_user.is_authenticated %}
@@ -89,10 +110,10 @@
 					<div class="dropdown-menu bg-body" aria-labelledby="dropdownId">
 						<a class="dropdown-item" href="">
 							<i class="fas fa-clipboard-check"></i>
-							Module01Item</a>
+							PayStubItem</a>
 						<a class="dropdown-item" href="">
-							<i class="fas fa-football-ball    "></i>
-							Module02Item</a>
+							<i class="fas fa-football-ball"></i>
+							TimeSheetItem</a>
 					</div>
 				</li>
 				{% else %}
@@ -104,12 +125,12 @@
 					<div class="dropdown-menu bg-body" aria-labelledby="dropdownId">
 					  <a class="dropdown-item" href="">
 						  <i class="fas fa-clipboard-check    "></i>
-						  Module01Item</a>
+						  PayStubItem</a>
 					  <a class="dropdown-item" href="
 					  
 					  ">
 						  <i class="fas fa-football-ball    "></i>
-						  Module02Item</a>
+						  TimeSheetItem</a>
 					</div>
 				  </li>
 				  {% endif %}
@@ -124,7 +145,7 @@
 		  </nav>
 		  <!-- CHALKBOARD INFO BAR  -->
 		  <!-- this is the part that pops up below navbar -->
-		<div class="collapse bg-dark text-dark mt-0 mb-0" id="navbarHeader" >
+		<div class="collapse bg-black text-maroon mt-0 mb-0" id="navbarHeader" >
 			<div class="d-flex justify-content-around align-items-center mt-0 pt-4 px-2 mx-1 ">
 						<small class="text-muted p-0">
 							Code basics in stack-like diagram
@@ -135,7 +156,7 @@
 						<p class="text-light text-center mt-0 mb-0 p-0">
 							<i class="fas fa-fw fa-arrow-right"></i>
 						</p>
-						<div class="alert alert-light bg-dark border-light text-light text-center mb-1 p-1" role="alert">
+						<div class="alert alert-light bg-black border-light text-light text-center mb-1 p-1" role="alert">
 							<i class="fas fa-user    "></i>	create a user acct
 							&RightArrowLeftArrow; 
 							<i class="fas fa-database"></i> stores hash pw into db
@@ -146,7 +167,7 @@
 						</p>
 
 
-						<div class="alert alert-light bg-dark border-light text-light text-center mb-1 p-1" role="alert">
+						<div class="alert alert-light bg-black border-light text-light text-center mb-1 p-1" role="alert">
 							<i class="fas fa-clipboard-list    "></i> user create obj (def: post) via forms
 							&RightArrowLeftArrow; 
 							<i class="fas fa-database    "></i> stores to db and reads when returned as a result of a query
@@ -160,7 +181,7 @@
 				<p class="text-light text-center mt-0 mb-0 mx-2 p-0">
 					<i class="fas fa-level-down-alt  fa-rotate-90 mt-0"></i>
 				</p>
-				<div class="alert alert-light bg-dark border-light text-light text-center mb-1 p-1"  role="alert">
+				<div class="alert alert-light bg-black border-light text-light text-center mb-1 p-1"  role="alert">
 					<i class="fas fa-clipboard-check    "></i> user updates items/edits or delete records &RightArrowLeftArrow; 
 					<i class="fas fa-database    "></i> db stores or removes records
 				</div>
@@ -169,7 +190,7 @@
 					<i class="fas  fa-fw fa-arrow-left mt-0"></i>
 				</p>
 
-				<div class="alert alert-light bg-dark border-light text-light text-center mb-1 p-1" role="alert">
+				<div class="alert alert-light bg-black border-light text-light text-center mb-1 p-1" role="alert">
 					<i class="fas fa-chart-line    "></i> user obj itself could also be edited
 					&RightArrowLeftArrow;
 					<i class="fas fa-image    "></i> db records reflecting the profile pic, email, username.
@@ -184,12 +205,14 @@
 			</div>
 		</div>
 		</div>
-		<div class="navbar navbar-dark bg-orange border-dark box-shadow mt-0">
+		<div class="navbar navbar-dark bg-secondary box-shadow mt-0"
+		style="border-bottom-width: medium;"
+		>
 			<div class="container d-flex justify-content-between pt-2">
 				<a class="navbar-brand d-flex align-items-center">
-					<i class="fa fa-code mr-2 text-smaller text-muted" aria-hidden="true"> </i >
-					<small class="text-dark text-smaller text-muted"> Show Me The Code!</small>
-					<i class="fa fa-arrow-right mx-3 text-smaller text-muted" aria-hidden="true"></i>
+					<i class="fa fa-code mr-2 text-maroon" aria-hidden="true"> Show Me The Code!</i >
+					
+					<i class="fa fa-arrow-right mx-3 text-maroon" aria-hidden="true"></i>
 				</a>
 				<button
 					class="navbar-toggler border-orange mt-1 p-1"
@@ -199,12 +222,15 @@
 					aria-controls="navbarHeader"
 					aria-expanded="false"
 					aria-label="Toggle navigation"
-					style="border-color: #eeaa88;"
 				>
-					<i class="fas fa-chalkboard text-dark mt-1">i</i>
+					<i class="fas fa-chalkboard text-maroon mt-1">i</i>
 				</button>
 			</div>
 		</div>
+		<nav class="navbar navbar-expand-xs navbar-light bg-maroon">
+		</nav>
+		
+
 
 		<main role="main" class="container my-2 px-0">
 			<div class="row">
@@ -217,237 +243,154 @@
 					{% endfor %} {% endif %} {% endwith %} {% block content %} {% endblock
 					%}
 				</div>
+				<!-- SIDEBAR -->
 				<div class="col-sm-3">
-					<div class="content-section px-3 py-0">
+					<div class="content-section px-1 py-2 no-print">
 						<div class="container-fluid text-center my-2 py-0 px-2">
 							<div
-								class="nav-flex-column text-center"
+								class="nav-flex-column text-center py-4"
 								style="width: fit-content; height:max-content;"
 							>
 								<img
-									src="https://raw.githubusercontent.com/attila5287/task_app_img/master/nodaysoff_menuedt.ico"
+								src="https://raw.githubusercontent.com/attila5287/payroll_management_app_assets/master/task_menu.ico"
 									class="card-img-top mb-2"
 								/>
 								{% if current_user.is_authenticated %}
 
 								<a
-									class="nav-item btn btn-large bg-gold nav-link text-dark border-dark pb-2"
+									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
 									href=""
 									data-toggle="tooltip"
 									data-placement="right"
-									title="score points as you complete tasks color grouped depending on their urgency-importance levels with a score-dynamic avatar of user-preferred theme"
+									title="generate a paystub, fill out the forms"
 									style="border-width: medium;"
 								>
-									<i class="fas fa-trophy"> Task Hero </i>
-								</a>
-								<a class="nav-item">
-									<div class="row">
-										<div class="col-xs-6">
-											<a
-												class="nav-link text-dark p b-2"
-												href=""
-												data-toggle="tooltip"
-												data-placement="right"
-												title="create a new task, select urgency-importance so app will assign points then complete to score points"
-											>
-												<i class="fas fa-dolly"> New Task </i>
-											</a>
-										</div>
-										<div class="col-xs-6">
-											<a
-												class="nav-link text-dark mb-2"
-												href=""
-												data-toggle="tooltip"
-												data-placement="right"
-												title="lists all tasks in a minimalist way with no points or colors, swipe through your TODO list fast!"
-											>
-												<i class="fas fa-list-ul"> Mini~Ma~List </i>
-											</a>
-										</div>
-									</div>
+									<i class="fa fa-print" aria-hidden="true"></i>
+									<strong>
+									PayStub
+									</strong>
+									</a>
 								</a>
 								<a
-									class="nav-item btn btn-large bg-grass nav-link text-dark border-dark mb-2"
-									href=""
+									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
+									href="{{ url_for('timesheet.create_timesheet') }}"
 									data-toggle="tooltip"
 									data-placement="right"
-									title="Plan a productive day by adding activities and try to keep up by tracking your score.A fun way to organize daily activities. Could be any day, week end, work day etc."
+									title="type clock in-out hours to calculate hours worked"
 									style="border-width: medium;"
 								>
-									<i class="fas fa-football-ball"> Pro Day</i>
-								</a>
-
-								<a class="nav-item">
-									<div class="row">
-										<div class="col-xs-6">
-											<a
-												class="nav-link text-dark mb-2"
-												href=""
-												data-toggle="tooltip"
-												data-placement="right"
-												title="Start planning a productive day by adding activities. Check examples on the playbook first!"
-											>
-												<i class="fas fa-chalkboard-teacher">
-													Game Plan
-												</i>
-											</a>
-										</div>
-										<div class="col-xs-6">
-											<a
-												class="nav-link text-dark mb-2"
-												href=""
-												data-toggle="tooltip"
-												data-placement="right"
-												title="sample pro-days to review, intro to activities, categories and scoring points.Game up!"
-											>
-												<i class="fas fa-book">
-													PlayBook
-												</i>
-											</a>
-										</div>
-									</div>
-								</a>
-
-								<a
-									class="nav-item btn btn-large bg-brick nav-link text-dark border-dark mb-2"
-									href=""
-									data-toggle="tooltip"
-									data-placement="right"
-									title="the art of setting goals and crossing them off your list! App will help you set goals under five key metrics then much more to track those!"
-									style="border-width: medium;"
-								>
-									<i class="fas fa-parachute-box"> SMART GoalTracker</i>
-								</a>
-								<a class="nav-item">
-									<div class="row">
-										<div class="col-xs-6">
-											<a
-												class="nav-link text-dark mb-2"
-												href=""
-												data-toggle="tooltip"
-												data-placement="right"
-												title="set a goal first by filling out the forms"
-											>
-												<i class="fas fa-crosshairs">
-													Set A Goal
-												</i>
-											</a>
-										</div>
-										<div class="col-xs-6">
-											<a
-												class="nav-link text-dark mb-2"
-												href=""
-												data-toggle="tooltip"
-												data-placement="right"
-												title="about SMART:"
-											>
-												<i class="fas fa-binoculars"> Track'N</i>
-											</a>
-										</div>
-									</div>
-								</a>
-
-								<a
-									class="nav-item btn btn-large bg-sky nav-link text-dark border-dark mb-2"
-									href=""
-									data-toggle="tooltip"
-									data-placement="right"
-									title="introduced by Nancy Ratey, app will take you through this self-coaching strategy step by step to structure a sustainable strategy with easy-to-remember mechanics."
-									style="border-width: medium;"
-								>
-									<i class="fas fa-puzzle-piece">
-										ANSWER Self-Coaching
-									</i>
+									<i class="fa fa-print" aria-hidden="true"></i> <strong>TimeSheet</strong></a>
 								</a>
 								<a
-									class="nav-item btn btn-small bg-orange nav-link text-dark border-dark mb-2"
-									href=""
+									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
+									href="{{ url_for('users.account') }}"
 									data-toggle="tooltip"
 									data-placement="right"
-									title="generates random cards with quotes from inspirational figures, authors, writers, motivational speakers, personal coaches; 1oo% dev's choices!"
+									title="change user preferences or records"
 									style="border-width: medium;"
 								>
-									<i class="fas fa-quote-left"> got Inspired? </i>
-									<i class="fas fa-quote-right"></i>
-								</a>
-								<div class="row">
-									<div class="col-xs-6">
-										<a
-											class="nav-item nav-link text-dark col-md-10"
-											href="{{ url_for('users.account') }}"
-										>
-											<i class="fas fa-cogs mr-2"> Account</i>
-										</a>
-									</div>
-									<div class="col-xs-6">
-										<a
-											class="nav-item nav-link text-dark2"
-											href="{{ url_for('users.logout') }}"
-										>
-											<i class="fas fa-sign-out-alt mr-2"> Logout</i></a
-										>
-									</div>
-								</div>
+								<i class="fas fa-cogs mr-2"> Account</i>
+								</a>								
+								<a
+									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
+									href="{{ url_for('users.logout') }}"
+									data-toggle="tooltip"
+									data-placement="right"
+									title="logout current user"
+									style="border-width: medium;"
+								>
+								<i class="fas fa-sign-out-alt mr-2"> Logout</i>
+								</a>																
 
 								{% else %}
+								
 								<a
-									class="nav-item btn btn-large bg-orange nav-link text-dark border-dark mb-2"
+									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
+									href="{{ url_for('paystub.create_paystub') }}"
+									data-toggle="tooltip"
+									data-placement="right"
+									title="generate a paystub, fill out the forms"
+									style="border-width: medium;"
+								>
+									<i class="fa fa-print" aria-hidden="true"></i>
+									<strong>
+									PayStub
+									</strong>
+									</a>
+								</a>
+								<a
+									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
+									href=""
+									data-toggle="tooltip"
+									data-placement="right"
+									title="type clock in-out hours to calculate hours worked"
+									style="border-width: medium;"
+								>
+									<i class="fa fa-print" aria-hidden="true"></i> <strong>TimeSheet</strong></a>
+								</a>
+								<a
+									class="nav-item btn btn-secondary text-maroon btn-large nav-link mb-2 mt-2 border-dark"
 									href="{{ url_for('main.about') }}"
 									data-toggle="tooltip"
 									data-placement="right"
-									title="info abt app: complete tasks grouped under urgency-importance and score points accordingly,  TODO"
+									title="information about app"
 									style="border-width: medium;"
 								>
-									<img
-										src="https://raw.githubusercontent.com/attila5287/task_app_img/master/noDaysOff_task_info.ico"
-										style="height: 2rem;"
-									/>
+
+								<i class="fas fa-info"> 
+									<strong>
+										Info 
+									</strong>
+								</i> 
+
 								</a>
 								<a
-									class="nav-item btn btn-large bg-orange nav-link text-dark border-dark mb-2"
+									class="nav-item btn btn-secondary text-maroon btn-large nav-link mb-2 border-dark"
 									href="{{ url_for('users.register') }}"
 									data-toggle="tooltip"
 									data-placement="right"
-									title="complete tasks grouped under urgency-importance and score points accordingly,  TODO"
+									title="register to enjoy user features"
 									style="border-width: medium;"
 								>
-									<img
-										src="https://raw.githubusercontent.com/attila5287/task_app_img/master/noDaysOff_register.ico"
-										style="height: 2rem;"
-									/>
+								<i class="fas fa-user-alt-slash"> Register</i> 
 								</a>
+
 								<a
-									class="nav-item btn btn-large bg-orange nav-link text-dark border-dark mb-2"
+									class="nav-item btn btn-secondary text-maroon btn-large nav-link mb-2 border-dark"
 									href="{{ url_for('users.login') }}"
 									data-toggle="tooltip"
 									data-placement="right"
-									title="complete tasks grouped under urgency-importance and score points accordingly,  TODO"
-									style="border-width: medium;"
+									title="login if registered user already"
+									style="border-width:medium ;"
 								>
-									<img
-										src="https://raw.githubusercontent.com/attila5287/task_app_img/master/noDaysOff_login.ico"
-										style="height: 2rem;"
-									/>
+								<i class="fa fa-user-plus mr-2" aria-hidden="true"> Login</i> 
 								</a>
 
 								{% endif %}
-
-								<img
-									class="card-img-top mb-2"
-									src="https://raw.githubusercontent.com/attila5287/task_app_img/master/nodaysoff_menu_bottomedt.ico"
-								/> 
 
 								<div class="card border-body">
 									<div class="card-body bg-body border-body p-1">
 										<small
 											class="card-subtitle text-muted"
 											style="font-style: italic;"
-										> blueprinted by: 										
-										<i class="fa fa-code-branch text-muted ml-2" aria-hidden="true"
-										> attila#52 </i>
-									</small>
+										> app developed; graphics designed; code written; database setup; records admin'd; idea cr34t3d by: 
+										</small>
+
+										<a href="https://github.com/attila5287/no_days_off">
+
+											<i class="fa fa-code-branch text-maroon ml-2" aria-hidden="true"
+											> attila#52 </i>
+										</a>
 									</div>
 								</div>
+								
+
+
+
+								<img
+								class="card-img-top mb-2"
+								src="https://raw.githubusercontent.com/attila5287/payroll_management_app_assets/master/task_menu_bottom.ico"
+							/> 
 							</div>
 						</div>
 					</div>
@@ -456,30 +399,33 @@
 		</main>
 		
 
-		<footer class="footer">
-			<div class="row bg-body">
-				<div class="col-sm-6 offset-sm-3">
-					<div class="d-flex flex-row justify-content-around bg-body text-muted text-center text-bottom my-0">
-						<a> &middot;</a>
-						<a>BoilerPlate </a><a> &middot;</a>
-						<a>BluePrint </a><a> &middot;</a>
-						<a>by Attila Turkoz </a><a> &middot;</a>
-						<a>Github: @attila5287 </a><a> &middot;</a>
-						<a>Full Stack Web App </a><a> &middot;</a>
+		<footer class="footer mt-4 no-print">
+			<div class="row">
+				<div class="col-sm-2 offset-sm-2">
+				  <img class="mb-2"
+					src="https://raw.githubusercontent.com/attila5287/payroll_management_app_assets/master/jam_upperleft_png512_brushedRedBlkk.ico"
+					alt="" width="128" height="128">
+				</div>
+				
+				<div class="col-sm-2">
+					<div class="d-flex flex-column justify-content-around text-muted text-center">
+						<a>BoilerPlate </a>
+						<a>BluePrint </a>
+						<a>by Attila Turkoz </a>
+						<a>Github: @attila5287 </a>
+						<a>Full Stack Web App </a>
+					</div>
+				</div>
+				<div class="col-sm-2">	
+					<div class="d-flex flex-column justify-content-between text-muted text-center">
+						<a>Python Object Oriented Programming</a>
+						<a>Flask Web FrameWork</a>
+						<a>PostgreSQL Database</a>
+						<a>Heroku Server (SalesForce)</a>
+						<a>Bootstrap Front End</a>
 					</div>
 				</div>
 			</div>
-				<div class="row bg-body">
-					<div class="col-sm-8 offset-sm-2">
-						<div class="d-flex flex-row justify-content-between bg-body text-muted text-bottom mt-0">
-							<a> &middot;</a><a>Python Object Oriented Programming</a><a>&middot;</a>
-							<a>Flask Web FrameWork</a><a>&middot;</a>
-							<a>PostgreSQL Database</a><a>&middot;</a>
-							<a>Heroku Server (SalesForce)</a><a>&middot;</a>
-							<a>Bootstrap Front End</a><a>&middot;</a>
-						</div>
-					</div>
-				</div>
 		</footer>
 
 		<!-- Optional JavaScript -->
@@ -489,12 +435,21 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 		<style>
 			.bg-body {
-				background-color: #fecd82;
+				background-color: silver;
 			  }
 			  .border-body {
-				border-color: #fecd82;
+				border-color:silver;
 				border-width: medium;
 			  }
+			  .bg-black {
+				background-color: rgba(22, 22, 22, 0.786);
+			  }			  
+			  .border-black {
+				border-color: rgb(22, 22, 22);
+			  }
+			  .bg-brick {
+				background-color: rgb(212, 125, 119);
+			  }			  
 			  .border-brick {
 				border-color: rgb(212, 125, 119);
 			  }			  
@@ -504,21 +459,24 @@
 			  .bg-sky {
 				background-color: rgba(152, 170, 199, 0.883);
 			  }
-			  .bg-orange {
-				background-color: #eeaa88;
-			  }
-			  .bg-bisque {
-				background-color: rgb(250, 208, 184);
-			  }
-			  .bg-brick {
-				background-color: rgb(212, 125, 119);
-			  }
+
 			  .bg-gold {
 				background-color: rgba(238, 156, 79, 0.966);
 			  }
 			  .bg-silver {
 				background-color: rgba(221, 226, 225, 0.932);
 			  }
+
+			  .text-maroon {
+				  color: maroon;
+			  }
+			  .bg-maroon {
+				background-color: maroon;
+			}
+			.border-maroon {
+				border-color: maroon;
+				border-width: medium;
+			}
 			  html {
 				position: relative;
 				min-height: 100%;
