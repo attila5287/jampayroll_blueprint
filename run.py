@@ -1,4 +1,4 @@
-from jam import create_app
+ jam import create_app
 
 app = create_app()
 
