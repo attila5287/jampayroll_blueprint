@@ -128,3 +128,15 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .vscode/settings.json
+jam_env/pyvenv.cfg
+jam_env/Scripts/activate
+jam_env/Scripts/activate.bat
+jam_env/Scripts/Activate.ps1
+jam_env/Scripts/deactivate.bat
+jam_env/Scripts/easy_install-3.7.exe
+jam_env/Scripts/easy_install.exe
+jam_env/Scripts/pip.exe
+jam_env/Scripts/pip3.7.exe
+jam_env/Scripts/pip3.exe
+jam_env/Scripts/python.exe
+jam_env/Scripts/pythonw.exe

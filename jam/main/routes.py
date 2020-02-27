@@ -1,3 +1,4 @@
+
 from flask import render_template, request, Blueprint
 from jam.models import Post, PostDemo
 
@@ -27,7 +28,6 @@ def inject_PostDemoList():
     return dict(PostDemoList=PostDemoList)
 
 
-@main.route("/")
 @main.route("/home")
 def home():
     page = request.args.get('page', 1, type=int)
@@ -50,3 +50,4 @@ def about():
 @main.route("/about/developer")
 def aboutdev():
     return render_template('aboutdev.html', title='About')
+
