@@ -27,7 +27,7 @@ class PayStubForm(FlaskForm):
     hoursWorked = DecimalField('hours worked', validators=[
                               DataRequired()], default=80.00)
     
-    payCntYr2Dt = IntegerField('allowance', default=2)
+    payCntYr2Dt = IntegerField('pay count YTD', default=2)
     
     dateStart =  StringField('mm/dd/yyyy', validators=[
                               DataRequired()], default='11/04/2019')

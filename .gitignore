@@ -140,3 +140,11 @@ jam_env/Scripts/pip3.7.exe
 jam_env/Scripts/pip3.exe
 jam_env/Scripts/python.exe
 jam_env/Scripts/pythonw.exe
+jam_env/Scripts/epylint.exe
+jam_env/Scripts/flask.exe
+jam_env/Scripts/gunicorn_paster.exe
+jam_env/Scripts/gunicorn.exe
+jam_env/Scripts/isort.exe
+jam_env/Scripts/pylint.exe
+jam_env/Scripts/pyreverse.exe
+jam_env/Scripts/symilar.exe
